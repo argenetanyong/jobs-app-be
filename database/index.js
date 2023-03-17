@@ -42,12 +42,17 @@ const Job = sequelize.define(
       type: Sequelize.STRING,
       allowNull: false,
     },
+    skills: {
+      type: Sequelize.STRING,
+    },
     description: {
       type: Sequelize.STRING,
     },
-    completed: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false,
+    budget: {
+      type: Sequelize.INTEGER,
+    },
+    contact_email: {
+      type: Sequelize.STRING,
     },
     deleted_at: {
       type: Sequelize.DATE,
@@ -59,8 +64,8 @@ const Job = sequelize.define(
   }
 );
 
-User.hasMany(Job);
-Job.belongsTo(User);
+/* User.hasMany(Job);
+Job.belongsTo(User); */
 
 module.exports = {
   sequelize,

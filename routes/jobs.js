@@ -9,6 +9,7 @@ router.use(cors());
 
 //-------------- LIST -----------------//
 router.get("/", async (req, res) => {
+  console.log("LIST -- ");
   const criteria = {
     where: {
       deleted_at: null,
@@ -32,7 +33,10 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   const result = await Job.create({
     title: req.body.title,
+    skills: req.body.skills,
     description: req.body.description,
+    budget: req.body.budget,
+    contact_email: req.body.contact_email,
   });
   res.status(200).send(result);
 });
